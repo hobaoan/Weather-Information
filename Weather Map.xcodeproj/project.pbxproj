@@ -37,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E98E6A072A67F6420001B850 /* Weather Information.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Information.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E98E6A072A67F6420001B850 /* Weather Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98E6A0A2A67F6420001B850 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E98E6A0C2A67F6420001B850 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E98E6A0E2A67F6420001B850 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,9 +46,9 @@
 		E98E6A162A67F6430001B850 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E98E6A192A67F6430001B850 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E98E6A1B2A67F6430001B850 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E98E6A202A67F6440001B850 /* Weather InformationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Weather InformationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E98E6A202A67F6440001B850 /* Weather MapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Weather MapTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98E6A242A67F6440001B850 /* Weather_InformationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_InformationTests.swift; sourceTree = "<group>"; };
-		E98E6A2A2A67F6440001B850 /* Weather InformationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Weather InformationUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E98E6A2A2A67F6440001B850 /* Weather MapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Weather MapUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98E6A2E2A67F6440001B850 /* Weather_InformationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_InformationUITests.swift; sourceTree = "<group>"; };
 		E98E6A302A67F6440001B850 /* Weather_InformationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_InformationUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,10 +78,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E9823F152A69153400AD07FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E98E69FE2A67F6420001B850 = {
 			isa = PBXGroup;
 			children = (
-				E98E6A1B2A67F6430001B850 /* Info.plist */,
 				E98E6A092A67F6420001B850 /* Weather Information */,
 				E98E6A232A67F6440001B850 /* Weather InformationTests */,
 				E98E6A2D2A67F6440001B850 /* Weather InformationUITests */,
@@ -92,9 +98,9 @@
 		E98E6A082A67F6420001B850 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E98E6A072A67F6420001B850 /* Weather Information.app */,
-				E98E6A202A67F6440001B850 /* Weather InformationTests.xctest */,
-				E98E6A2A2A67F6440001B850 /* Weather InformationUITests.xctest */,
+				E98E6A072A67F6420001B850 /* Weather Map.app */,
+				E98E6A202A67F6440001B850 /* Weather MapTests.xctest */,
+				E98E6A2A2A67F6440001B850 /* Weather MapUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,8 +108,10 @@
 		E98E6A092A67F6420001B850 /* Weather Information */ = {
 			isa = PBXGroup;
 			children = (
+				E98E6A1B2A67F6430001B850 /* Info.plist */,
 				E98E6A3D2A67F75E0001B850 /* Application */,
 				E98E6A3E2A67F7670001B850 /* Presentation */,
+				E9823F152A69153400AD07FC /* Model */,
 				E98E6A3F2A67F76D0001B850 /* Resource */,
 				E98E6A402A67F8880001B850 /* CoreDataStorage */,
 			);
@@ -181,9 +189,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E98E6A062A67F6420001B850 /* Weather Information */ = {
+		E98E6A062A67F6420001B850 /* Weather Map */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E98E6A342A67F6440001B850 /* Build configuration list for PBXNativeTarget "Weather Information" */;
+			buildConfigurationList = E98E6A342A67F6440001B850 /* Build configuration list for PBXNativeTarget "Weather Map" */;
 			buildPhases = (
 				E98E6A032A67F6420001B850 /* Sources */,
 				E98E6A042A67F6420001B850 /* Frameworks */,
@@ -193,14 +201,14 @@
 			);
 			dependencies = (
 			);
-			name = "Weather Information";
+			name = "Weather Map";
 			productName = "Weather Information";
-			productReference = E98E6A072A67F6420001B850 /* Weather Information.app */;
+			productReference = E98E6A072A67F6420001B850 /* Weather Map.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E98E6A1F2A67F6440001B850 /* Weather InformationTests */ = {
+		E98E6A1F2A67F6440001B850 /* Weather MapTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E98E6A372A67F6440001B850 /* Build configuration list for PBXNativeTarget "Weather InformationTests" */;
+			buildConfigurationList = E98E6A372A67F6440001B850 /* Build configuration list for PBXNativeTarget "Weather MapTests" */;
 			buildPhases = (
 				E98E6A1C2A67F6440001B850 /* Sources */,
 				E98E6A1D2A67F6440001B850 /* Frameworks */,
@@ -211,14 +219,14 @@
 			dependencies = (
 				E98E6A222A67F6440001B850 /* PBXTargetDependency */,
 			);
-			name = "Weather InformationTests";
+			name = "Weather MapTests";
 			productName = "Weather InformationTests";
-			productReference = E98E6A202A67F6440001B850 /* Weather InformationTests.xctest */;
+			productReference = E98E6A202A67F6440001B850 /* Weather MapTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E98E6A292A67F6440001B850 /* Weather InformationUITests */ = {
+		E98E6A292A67F6440001B850 /* Weather MapUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E98E6A3A2A67F6440001B850 /* Build configuration list for PBXNativeTarget "Weather InformationUITests" */;
+			buildConfigurationList = E98E6A3A2A67F6440001B850 /* Build configuration list for PBXNativeTarget "Weather MapUITests" */;
 			buildPhases = (
 				E98E6A262A67F6440001B850 /* Sources */,
 				E98E6A272A67F6440001B850 /* Frameworks */,
@@ -229,9 +237,9 @@
 			dependencies = (
 				E98E6A2C2A67F6440001B850 /* PBXTargetDependency */,
 			);
-			name = "Weather InformationUITests";
+			name = "Weather MapUITests";
 			productName = "Weather InformationUITests";
-			productReference = E98E6A2A2A67F6440001B850 /* Weather InformationUITests.xctest */;
+			productReference = E98E6A2A2A67F6440001B850 /* Weather MapUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -257,7 +265,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E98E6A022A67F6420001B850 /* Build configuration list for PBXProject "Weather Information" */;
+			buildConfigurationList = E98E6A022A67F6420001B850 /* Build configuration list for PBXProject "Weather Map" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -270,9 +278,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E98E6A062A67F6420001B850 /* Weather Information */,
-				E98E6A1F2A67F6440001B850 /* Weather InformationTests */,
-				E98E6A292A67F6440001B850 /* Weather InformationUITests */,
+				E98E6A062A67F6420001B850 /* Weather Map */,
+				E98E6A1F2A67F6440001B850 /* Weather MapTests */,
+				E98E6A292A67F6440001B850 /* Weather MapUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -338,12 +346,12 @@
 /* Begin PBXTargetDependency section */
 		E98E6A222A67F6440001B850 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E98E6A062A67F6420001B850 /* Weather Information */;
+			target = E98E6A062A67F6420001B850 /* Weather Map */;
 			targetProxy = E98E6A212A67F6440001B850 /* PBXContainerItemProxy */;
 		};
 		E98E6A2C2A67F6440001B850 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E98E6A062A67F6420001B850 /* Weather Information */;
+			target = E98E6A062A67F6420001B850 /* Weather Map */;
 			targetProxy = E98E6A2B2A67F6440001B850 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -554,7 +562,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather Information.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Weather Information";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather Map.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Weather Map";
 			};
 			name = Debug;
 		};
@@ -574,7 +582,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather Information.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Weather Information";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather Map.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Weather Map";
 			};
 			name = Release;
 		};
@@ -617,7 +625,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E98E6A022A67F6420001B850 /* Build configuration list for PBXProject "Weather Information" */ = {
+		E98E6A022A67F6420001B850 /* Build configuration list for PBXProject "Weather Map" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E98E6A322A67F6440001B850 /* Debug */,
@@ -626,7 +634,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E98E6A342A67F6440001B850 /* Build configuration list for PBXNativeTarget "Weather Information" */ = {
+		E98E6A342A67F6440001B850 /* Build configuration list for PBXNativeTarget "Weather Map" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E98E6A352A67F6440001B850 /* Debug */,
@@ -635,7 +643,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E98E6A372A67F6440001B850 /* Build configuration list for PBXNativeTarget "Weather InformationTests" */ = {
+		E98E6A372A67F6440001B850 /* Build configuration list for PBXNativeTarget "Weather MapTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E98E6A382A67F6440001B850 /* Debug */,
@@ -644,7 +652,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E98E6A3A2A67F6440001B850 /* Build configuration list for PBXNativeTarget "Weather InformationUITests" */ = {
+		E98E6A3A2A67F6440001B850 /* Build configuration list for PBXNativeTarget "Weather MapUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E98E6A3B2A67F6440001B850 /* Debug */,
