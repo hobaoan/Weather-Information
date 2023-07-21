@@ -3,35 +3,91 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Weather_Information" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="Weather_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u99-aK-8ul">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
-                                <color key="backgroundColor" red="0.0" green="0.33333333333333331" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CfH-kU-yV7">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ST0-ZU-BZF">
+                                <rect key="frame" x="0.0" y="89" width="393" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input name city" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aPf-Qa-evn">
+                                        <rect key="frame" x="20" y="0.0" width="298" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7m-hf-9xa">
+                                        <rect key="frame" x="333" y="0.0" width="40" height="40"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="ArW-S1-ohR">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4PG-Ad-uhB">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="4PG-Ad-uhB" firstAttribute="leading" secondItem="n7m-hf-9xa" secondAttribute="leading" id="5ZM-c1-Sqh"/>
+                                            <constraint firstAttribute="width" constant="40" id="5eU-zp-Xlk"/>
+                                            <constraint firstAttribute="trailing" secondItem="ArW-S1-ohR" secondAttribute="trailing" id="P9n-co-wx5"/>
+                                            <constraint firstAttribute="bottom" secondItem="4PG-Ad-uhB" secondAttribute="bottom" id="fDF-i1-kz5"/>
+                                            <constraint firstAttribute="height" constant="40" id="fwY-Bl-G6n"/>
+                                            <constraint firstItem="4PG-Ad-uhB" firstAttribute="top" secondItem="n7m-hf-9xa" secondAttribute="top" id="hYx-df-65C"/>
+                                            <constraint firstItem="ArW-S1-ohR" firstAttribute="leading" secondItem="n7m-hf-9xa" secondAttribute="leading" id="lDT-tB-dqr"/>
+                                            <constraint firstItem="ArW-S1-ohR" firstAttribute="top" secondItem="n7m-hf-9xa" secondAttribute="top" id="lEA-NQ-VO2"/>
+                                            <constraint firstAttribute="bottom" secondItem="ArW-S1-ohR" secondAttribute="bottom" id="mLv-dT-noE"/>
+                                            <constraint firstAttribute="trailing" secondItem="4PG-Ad-uhB" secondAttribute="trailing" id="rK1-qS-Qj2"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="WB6-Id-v46"/>
+                                    <constraint firstItem="aPf-Qa-evn" firstAttribute="leading" secondItem="ST0-ZU-BZF" secondAttribute="leading" constant="20" id="00t-JV-C6c"/>
+                                    <constraint firstAttribute="trailing" secondItem="n7m-hf-9xa" secondAttribute="trailing" constant="20" id="1rW-Gw-xNX"/>
+                                    <constraint firstItem="n7m-hf-9xa" firstAttribute="leading" secondItem="aPf-Qa-evn" secondAttribute="trailing" constant="15" id="7K4-MM-nqg"/>
+                                    <constraint firstItem="aPf-Qa-evn" firstAttribute="top" secondItem="ST0-ZU-BZF" secondAttribute="top" id="F18-ps-95Z"/>
+                                    <constraint firstAttribute="bottom" secondItem="n7m-hf-9xa" secondAttribute="bottom" id="LYE-du-mcH"/>
+                                    <constraint firstItem="n7m-hf-9xa" firstAttribute="top" secondItem="ST0-ZU-BZF" secondAttribute="top" id="xZE-bJ-vZD"/>
+                                    <constraint firstAttribute="bottom" secondItem="aPf-Qa-evn" secondAttribute="bottom" id="yuW-DC-P5w"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="u99-aK-8ul" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ReH-dX-95D"/>
-                            <constraint firstItem="u99-aK-8ul" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="WOf-s8-IV6"/>
-                            <constraint firstItem="u99-aK-8ul" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="skg-hc-PYD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CfH-kU-yV7" secondAttribute="trailing" id="0tX-GB-8l3"/>
+                            <constraint firstItem="CfH-kU-yV7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="GqC-fa-L2U"/>
+                            <constraint firstItem="CfH-kU-yV7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OEd-bt-CEx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ST0-ZU-BZF" secondAttribute="trailing" id="Po7-cL-fpN"/>
+                            <constraint firstItem="ST0-ZU-BZF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="fYa-yb-9bW"/>
+                            <constraint firstItem="ST0-ZU-BZF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hc8-Ce-b0Q"/>
+                            <constraint firstAttribute="bottom" secondItem="CfH-kU-yV7" secondAttribute="bottom" id="qv0-fG-mWD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="inputCityTextField" destination="aPf-Qa-evn" id="YC2-YH-cbL"/>
+                        <outlet property="mapView" destination="CfH-kU-yV7" id="clS-dX-m4b"/>
+                        <outlet property="searchButton" destination="4PG-Ad-uhB" id="75d-qC-5uj"/>
+                        <outlet property="viewBGButton" destination="n7m-hf-9xa" id="fxz-xB-dCh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -39,6 +95,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_search" width="4000" height="4000"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
