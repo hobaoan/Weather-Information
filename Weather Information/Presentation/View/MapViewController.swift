@@ -40,7 +40,7 @@ class MapViewController: UIViewController {
                     // Error handling
                     print("Error to fetch weather data!: \(error.localizedDescription)")
                     
-                    let alertController = UIAlertController(title: "Notification", message: "Can not find that location", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Location not found", message: "Please enter another location", preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                     alertController.addAction(okAction)
                     self.present(alertController, animated: true, completion: nil)
