@@ -12,25 +12,33 @@ class MapViewController: UIViewController {
     
     var weatherViewModel = WeatherViewModel()
     var currentAnnotation: MKPointAnnotation?
-    var tapGestureRecognizer: UITapGestureRecognizer?
+    var tapSearchGestureRecognizer: UITapGestureRecognizer?
+    var tapWeatherInforGestureRecognizer: UITapGestureRecognizer?
     var locationName : String = ""
     
     @IBOutlet weak var inputCityTextField: UITextField!
-    
     @IBOutlet weak var viewBGButton: UIView!
-    
     @IBOutlet weak var searchButton: UIButton!
-    
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var imageStatus: UIImageView!
+    @IBOutlet weak var viewWeatherInfor: UIView!
+    
+    @IBOutlet weak var nameCityLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpUI()
+        setUpUI ()
         fetchWeatherData(locationName: "saigon")
         
-        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGestureRecognizer(_:)))
-        view.addGestureRecognizer(tapGestureRecognizer!)
+        tapSearchGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGestureRecognizer(_:)))
+        
+        tapWeatherInforGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(weatherInforTapped))
+
+        
+        viewWeatherInfor.addGestureRecognizer(tapWeatherInforGestureRecognizer!)
+        view.addGestureRecognizer(tapSearchGestureRecognizer!)
     }
     
     func fetchWeatherData(locationName: String) {
@@ -48,13 +56,13 @@ class MapViewController: UIViewController {
                     // Update interface with new data
                     print("Fetch weather data success!")
                     self.weatherViewModel.printWeatherDataAsJSON()
-                    self.setUpMap()
+                    self.setUpMapWithData()
                 }
             }
         }
     }
     
-    func setUpMap() {
+    func setUpMapWithData() {
         guard let weatherData = weatherViewModel.weatherData else { return }
         DispatchQueue.main.async {
             
@@ -74,6 +82,29 @@ class MapViewController: UIViewController {
             
             self.currentAnnotation = annotation
             
+            // Load image from URL
+            if let icon = weatherData.weather.first?.icon {
+                let imgURLString = "https://openweathermap.org/img/w/\(icon).png"
+                if let imageURL = URL(string: imgURLString) {
+                    let session = URLSession.shared
+                    let task = session.dataTask(with: imageURL) { data, response, error in
+                        if let error = error {
+                            print("Error downloading image: \(error.localizedDescription)")
+                        } else if let data = data, let image = UIImage(data: data) {
+                            DispatchQueue.main.async {
+                                self.imageStatus.image = image
+                            }
+                        }
+                    }
+                    task.resume()
+                }
+            }
+            
+            // Load name of city
+            self.nameCityLabel.text = "\(weatherData.name) ,\(weatherData.sys.country)"
+            // Load temperature
+            let temperatureInt = Int(weatherData.main.temp)
+            self.temperatureLabel.text = "\(temperatureInt)℃"
         }
     }
     
@@ -99,6 +130,12 @@ class MapViewController: UIViewController {
         viewBGButton.clipsToBounds = true
         viewBGButton.layer.borderColor = UIColor.black.cgColor
         viewBGButton.layer.borderWidth = 1.0
+        
+        viewWeatherInfor.layer.cornerRadius = 10
+        viewWeatherInfor.clipsToBounds = true
+        
+        viewWeatherInfor.layer.borderColor = UIColor.gray.cgColor
+        viewWeatherInfor.layer.borderWidth = 1.0
     }
     
     
@@ -123,5 +160,20 @@ extension MapViewController {
     @objc func handleTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
         // Hide the keyboard when the view is tapped
         inputCityTextField.resignFirstResponder()
+    }
+}
+
+// Action to push DetailWeatherViewController
+extension MapViewController {
+    @objc func weatherInforTapped() {
+        self.performSegue(withIdentifier: "pushDetailWeather", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pushDetailWeather" {
+            if let destinationVC = segue.destination as? MapViewController {
+                // Pass data
+            }
+        }
     }
 }
