@@ -107,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				E932C61B2A6EC736009C5404 /* DetailWeatherViewController.swift */,
+				E9D8C73E2A6FE07600C188D7 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -236,6 +237,13 @@
 				E9823F202A691C7F00AD07FC /* WeatherViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E9D8C73E2A6FE07600C188D7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
