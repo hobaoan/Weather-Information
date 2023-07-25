@@ -101,7 +101,7 @@ class MapViewController: UIViewController {
             }
             
             // Load name of city
-            self.nameCityLabel.text = "\(weatherData.name) ,\(weatherData.sys.country)"
+            self.nameCityLabel.text = "\(weatherData.name), \(weatherData.sys.country)"
             // Load temperature
             let temperatureInt = Int(weatherData.main.temp)
             self.temperatureLabel.text = "\(temperatureInt)℃"
