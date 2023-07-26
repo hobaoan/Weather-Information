@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CloudsInfoEntity" representedClassName="CloudsInfoEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="all" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="weatherdata" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeatherDataEntity" inverseName="clouds" inverseEntity="WeatherDataEntity"/>
+    </entity>
+    <entity name="CoordinateEntity" representedClassName="CoordinateEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="weatherdata" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeatherDataEntity" inverseName="coord" inverseEntity="WeatherDataEntity"/>
+    </entity>
+    <entity name="MainInfoEntity" representedClassName="MainInfoEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="feels_like" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="humidity" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="pressure" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="temp" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="temp_max" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="temp_min" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="weatherdata" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeatherDataEntity" inverseName="main" inverseEntity="WeatherDataEntity"/>
+    </entity>
+    <entity name="SystemInfoEntity" representedClassName="SystemInfoEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="type" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="weatherdata" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeatherDataEntity" inverseName="sys" inverseEntity="WeatherDataEntity"/>
+    </entity>
+    <entity name="WeatherDataEntity" representedClassName="WeatherDataEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="base" optional="YES" attributeType="String"/>
+        <attribute name="cod" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dt" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="timezone" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="visibility" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="clouds" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CloudsInfoEntity" inverseName="weatherdata" inverseEntity="CloudsInfoEntity"/>
+        <relationship name="coord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoordinateEntity" inverseName="weatherdata" inverseEntity="CoordinateEntity"/>
+        <relationship name="main" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MainInfoEntity" inverseName="weatherdata" inverseEntity="MainInfoEntity"/>
+        <relationship name="sys" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SystemInfoEntity" inverseName="weatherdata" inverseEntity="SystemInfoEntity"/>
+        <relationship name="weather" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WeatherInfoEntity" inverseName="weatherdata" inverseEntity="WeatherInfoEntity"/>
+        <relationship name="wind" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WindInfoEntity" inverseName="weatherdata" inverseEntity="WindInfoEntity"/>
+    </entity>
+    <entity name="WeatherInfoEntity" representedClassName="WeatherInfoEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="descriptionA" optional="YES" attributeType="String"/>
+        <attribute name="icon" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="main" optional="YES" attributeType="String"/>
+        <relationship name="weatherdata" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeatherDataEntity" inverseName="weather" inverseEntity="WeatherDataEntity"/>
+    </entity>
+    <entity name="WindInfoEntity" representedClassName="WindInfoEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="deg" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="speed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="weatherdata" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeatherDataEntity" inverseName="wind" inverseEntity="WeatherDataEntity"/>
+    </entity>
+</model>
