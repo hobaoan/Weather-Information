@@ -15,7 +15,6 @@
 		E98E6A0D2A67F6420001B850 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98E6A0C2A67F6420001B850 /* SceneDelegate.swift */; };
 		E98E6A0F2A67F6420001B850 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98E6A0E2A67F6420001B850 /* MapViewController.swift */; };
 		E98E6A122A67F6420001B850 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E98E6A102A67F6420001B850 /* Main.storyboard */; };
-		E98E6A152A67F6420001B850 /* Weather_Information.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E98E6A132A67F6420001B850 /* Weather_Information.xcdatamodeld */; };
 		E98E6A172A67F6430001B850 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E98E6A162A67F6430001B850 /* Assets.xcassets */; };
 		E98E6A1A2A67F6430001B850 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E98E6A182A67F6430001B850 /* LaunchScreen.storyboard */; };
 		E98E6A252A67F6440001B850 /* Weather_InformationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98E6A242A67F6440001B850 /* Weather_InformationTests.swift */; };
@@ -50,7 +49,6 @@
 		E98E6A0C2A67F6420001B850 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E98E6A0E2A67F6420001B850 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E98E6A112A67F6420001B850 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E98E6A142A67F6420001B850 /* Weather_Information.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Weather_Information.xcdatamodel; sourceTree = "<group>"; };
 		E98E6A162A67F6430001B850 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E98E6A192A67F6430001B850 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E98E6A1B2A67F6430001B850 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 				E9823F152A69153400AD07FC /* Model */,
 				E9823F222A691DB100AD07FC /* Network */,
 				E98E6A3F2A67F76D0001B850 /* Resource */,
-				E98E6A402A67F8880001B850 /* CoreDataStorage */,
 			);
 			path = "Weather Information";
 			sourceTree = "<group>";
@@ -213,14 +210,6 @@
 				E98E6A182A67F6430001B850 /* LaunchScreen.storyboard */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		E98E6A402A67F8880001B850 /* CoreDataStorage */ = {
-			isa = PBXGroup;
-			children = (
-				E98E6A132A67F6420001B850 /* Weather_Information.xcdatamodeld */,
-			);
-			path = CoreDataStorage;
 			sourceTree = "<group>";
 		};
 		E98E6A412A67FA0E0001B850 /* View */ = {
@@ -382,7 +371,6 @@
 				E932C61C2A6EC736009C5404 /* DetailWeatherViewController.swift in Sources */,
 				E9823F252A691DE900AD07FC /* WeatherDataNetwork.swift in Sources */,
 				E98E6A0B2A67F6420001B850 /* AppDelegate.swift in Sources */,
-				E98E6A152A67F6420001B850 /* Weather_Information.xcdatamodeld in Sources */,
 				E98E6A0D2A67F6420001B850 /* SceneDelegate.swift in Sources */,
 				E9823F182A69186C00AD07FC /* WeatherData.swift in Sources */,
 			);
@@ -726,19 +714,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		E98E6A132A67F6420001B850 /* Weather_Information.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				E98E6A142A67F6420001B850 /* Weather_Information.xcdatamodel */,
-			);
-			currentVersion = E98E6A142A67F6420001B850 /* Weather_Information.xcdatamodel */;
-			path = Weather_Information.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = E98E69FF2A67F6420001B850 /* Project object */;
 }

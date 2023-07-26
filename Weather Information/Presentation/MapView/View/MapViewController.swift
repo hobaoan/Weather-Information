@@ -171,8 +171,9 @@ extension MapViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "pushDetailWeather" {
-            if let destinationVC = segue.destination as? MapViewController {
-                // Pass data
+            if let destinationVC = segue.destination as? DetailWeatherViewController {
+                // Pass the weatherData to the DetailWeatherViewController
+                destinationVC.weatherData = weatherViewModel.weatherData
             }
         }
     }
