@@ -7,10 +7,14 @@
 
 import UIKit
 
-class DetailWeatherViewController: UIViewController {
+class DetailWeatherViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // Add a property to hold the weather data
     var weatherData: WeatherData?
+    var detailWeatherViewModel = DetailWeatherViewModel()
+    var locationName: String?
+    var weatherForecast: WeatherForecast?
+    
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var nameCityLabel: UILabel!
@@ -20,10 +24,17 @@ class DetailWeatherViewController: UIViewController {
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var windyLabel: UILabel!
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
         setUpUI()
         updateDataDetailWeather()
+        registerTableView()
+        fetchWeatherForecast(locationName: locationName ?? "")
     }
     
     func setUpUI() {
@@ -80,4 +91,78 @@ class DetailWeatherViewController: UIViewController {
         
     }
     
+    func fetchWeatherForecast(locationName: String) {
+        detailWeatherViewModel.getWeatherForecast(for: locationName) { [weak self] error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    // Error handling
+                    print("Error to fetch weather forecast!: \(error.localizedDescription)")
+                } else {
+                    self?.weatherForecast = self?.detailWeatherViewModel.weatherForecast
+                    self?.tableView.reloadData()
+                    print("Fetch weather forecast success!")
+                }
+            }
+        }
+    }
+    
+    func registerTableView() {
+        let cellNibHeader = UINib(nibName: "HeaderTableViewCell", bundle: nil)
+        tableView.register(cellNibHeader, forCellReuseIdentifier: kHeaderTableViewCell)
+        let cellNibForecast = UINib(nibName: "ForecastTableViewCell", bundle: nil)
+        tableView.register(cellNibForecast, forCellReuseIdentifier: kForecastTableViewCell)
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Deselect the cell with animation disabled
+        tableView.deselectRow(at: indexPath, animated: false)
+        // Add your code to handle the selection if needed
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return weatherForecast?.list.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableCell(withIdentifier: kHeaderTableViewCell) as! HeaderTableViewCell
+        return headerView.contentView
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: kForecastTableViewCell, for: indexPath) as! ForecastTableViewCell
+        
+        // Make sure the weatherForecast and list are not nil
+        guard let weatherForecast = self.weatherForecast,
+              let forecastData = weatherForecast.list[safe: indexPath.row] else {
+            return cell
+        }
+        
+        cell.dateLabel.text = forecastData.dt_txt
+        let temperatureInt = Int(forecastData.main.temp)
+        cell.temperatureLabel.text = "\(temperatureInt)℃"
+        cell.descriptionLabel.text = forecastData.weather.first?.description
+        
+        if let icon = forecastData.weather.first?.icon {
+            let imgURLString = "https://openweathermap.org/img/w/\(icon).png"
+            if let imageURL = URL(string: imgURLString) {
+                let session = URLSession.shared
+                let task = session.dataTask(with: imageURL) { data, response, error in
+                    if let error = error {
+                        print("Error downloading image: \(error.localizedDescription)")
+                    } else if let data = data, let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            cell.imageStatus.image = image
+                        }
+                    }
+                }
+                task.resume()
+            }
+        }
+        
+        return cell
+    }
+    
+}
+extension Array {
+    subscript(safe index: Int) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
 }

@@ -437,7 +437,7 @@
                                     <constraint firstItem="JEF-jZ-Qvf" firstAttribute="top" secondItem="u1v-xj-cyb" secondAttribute="bottom" constant="8" id="xs2-l6-d6C"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fhU-7d-bSk">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fhU-7d-bSk">
                                 <rect key="frame" x="0.0" y="453" width="393" height="365"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -467,6 +467,7 @@
                         <outlet property="humidityLabel" destination="nse-3O-bpB" id="ZV0-sq-0Yc"/>
                         <outlet property="imageStatus" destination="gcb-Qj-Vo0" id="R2r-W1-jO5"/>
                         <outlet property="nameCityLabel" destination="Sn4-Xe-Xva" id="2X4-v0-GW6"/>
+                        <outlet property="tableView" destination="fhU-7d-bSk" id="wl3-HP-nmS"/>
                         <outlet property="temperatureLabel" destination="otY-rG-lyb" id="b31-yH-Yfq"/>
                         <outlet property="topView" destination="Xar-t7-qyx" id="mka-nH-UYg"/>
                         <outlet property="windyLabel" destination="dv8-f1-f1F" id="wJK-wN-qOY"/>

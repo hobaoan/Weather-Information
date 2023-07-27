@@ -14,7 +14,7 @@ class MapViewController: UIViewController {
     var currentAnnotation: MKPointAnnotation?
     var tapSearchGestureRecognizer: UITapGestureRecognizer?
     var tapWeatherInforGestureRecognizer: UITapGestureRecognizer?
-    var locationName : String = ""
+    var locationName : String = "saigon"
     
     @IBOutlet weak var inputCityTextField: UITextField!
     @IBOutlet weak var viewBGButton: UIView!
@@ -30,7 +30,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI ()
-        fetchWeatherData(locationName: "saigon")
+        fetchWeatherData(locationName: locationName)
         
         tapSearchGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGestureRecognizer(_:)))
         
@@ -146,6 +146,7 @@ class MapViewController: UIViewController {
             cleanedLocationName = cleanedLocationName.replacingOccurrences(of: " ", with: "")
             cleanedLocationName = cleanedLocationName.filter { !$0.isUppercase }
             fetchWeatherData(locationName: cleanedLocationName.lowercased())
+            self.locationName = cleanedLocationName.lowercased()
         } else {
             let alertController = UIAlertController(title: "Notification", message: "Please enter the location name", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -174,6 +175,8 @@ extension MapViewController {
             if let destinationVC = segue.destination as? DetailWeatherViewController {
                 // Pass the weatherData to the DetailWeatherViewController
                 destinationVC.weatherData = weatherViewModel.weatherData
+                // Pass the locationName to the DetailWeatherViewController
+                destinationVC.locationName = locationName
             }
         }
     }

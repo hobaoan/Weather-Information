@@ -13,7 +13,7 @@ class WeatherViewModel {
 
     
     func getWeatherData(for city: String, completion: @escaping (Error?) -> Void) {
-        let urlString = "\(WeatherDataNetwork.baseUrl)?q=\(city)&units=metric&appid=\(WeatherDataNetwork.apiKey)"
+        let urlString = "\(Network.weatherDataBaseUrl)?q=\(city)&units=metric&appid=\(Network.weatherDataApiKey)"
         guard let url = URL(string: urlString) else {
             completion(NSError(domain: "Invalid URL", code: 0, userInfo: nil))
             return

@@ -7,6 +7,7 @@
 
 import UIKit
 
+let kHeaderTableViewCell = "HeaderTableViewCell"
 class HeaderTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {

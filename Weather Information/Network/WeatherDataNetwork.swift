@@ -7,7 +7,10 @@
 
 import Foundation
 
-struct WeatherDataNetwork {
-    static let apiKey = "ac212f5768bf3e2f84201adbd2bc7961"
-    static let baseUrl = "https://api.openweathermap.org/data/2.5/weather"
+struct Network {
+    static let weatherDataApiKey = "ac212f5768bf3e2f84201adbd2bc7961"
+    static let weatherDataBaseUrl = "https://api.openweathermap.org/data/2.5/weather"
+    
+    static let weatherForecastApiKey = "ac212f5768bf3e2f84201adbd2bc7961"
+    static let weatherForecastBaseUrl = "https://api.openweathermap.org/data/2.5/forecast"
 }
