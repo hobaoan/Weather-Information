@@ -39,7 +39,15 @@ class MapViewController: UIViewController {
         
         viewWeatherInfor.addGestureRecognizer(tapWeatherInforGestureRecognizer!)
         view.addGestureRecognizer(tapSearchGestureRecognizer!)
+        
+        lockScreenOrientation()
     }
+    
+    func lockScreenOrientation() {
+           if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+               appDelegate.orientationLock = .portrait
+           }
+       }
     
     func fetchWeatherData(locationName: String) {
         weatherViewModel.getWeatherData(for: locationName) { error in
