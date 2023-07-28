@@ -31,6 +31,7 @@ class DetailWeatherViewController: UIViewController, UITableViewDataSource, UITa
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.isUserInteractionEnabled = true
         setUpUI()
         updateDataDetailWeather()
         registerTableView()
@@ -51,10 +52,11 @@ class DetailWeatherViewController: UIViewController, UITableViewDataSource, UITa
         topView.layer.shadowOpacity = 1
         topView.layer.shadowOffset = CGSize.zero
         topView.layer.shadowRadius = 3
-        self.view.addSubview(topView)
         
         imageStatus.layer.cornerRadius = 10
         imageStatus.clipsToBounds = true
+        imageStatus.addShadow(offset: CGSize(width: 0, height: 2), color: UIColor.black, radius: 4, opacity: 0.7)
+        
     }
     
     func updateDataDetailWeather() {
@@ -107,9 +109,9 @@ class DetailWeatherViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func registerTableView() {
-        let cellNibHeader = UINib(nibName: "HeaderTableViewCell", bundle: nil)
+        let cellNibHeader = UINib(nibName: kHeaderTableViewCell, bundle: nil)
         tableView.register(cellNibHeader, forCellReuseIdentifier: kHeaderTableViewCell)
-        let cellNibForecast = UINib(nibName: "ForecastTableViewCell", bundle: nil)
+        let cellNibForecast = UINib(nibName: kForecastTableViewCell, bundle: nil)
         tableView.register(cellNibForecast, forCellReuseIdentifier: kForecastTableViewCell)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -123,12 +125,16 @@ class DetailWeatherViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableCell(withIdentifier: kHeaderTableViewCell) as! HeaderTableViewCell
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonStatisticTapped))
+        headerView.buttonStatistic.isUserInteractionEnabled = true
+        headerView.buttonStatistic.addGestureRecognizer(tapGestureRecognizer)
+        
         return headerView.contentView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: kForecastTableViewCell, for: indexPath) as! ForecastTableViewCell
-        
         // Make sure the weatherForecast and list are not nil
         guard let weatherForecast = self.weatherForecast,
               let forecastData = weatherForecast.list[safe: indexPath.row] else {
@@ -165,4 +171,27 @@ extension Array {
     subscript(safe index: Int) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
+}
+extension UIView {
+    func addShadow(offset: CGSize, color: UIColor, radius: CGFloat, opacity: Float) {
+        layer.masksToBounds = false
+        layer.shadowOffset = offset
+        layer.shadowColor = color.cgColor
+        layer.shadowRadius = radius
+        layer.shadowOpacity = opacity
+        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: layer.cornerRadius).cgPath
+    }
+}
+extension DetailWeatherViewController {
+    @objc func buttonStatisticTapped() {
+        performSegue(withIdentifier: "pushStatisticWeather", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "pushStatisticWeather" {
+                if let destinationVC = segue.destination as? DetailWeatherViewModel {
+                    destinationVC.weatherForecast = self.weatherForecast
+                }
+            }
+        }
 }

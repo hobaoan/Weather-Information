@@ -471,11 +471,45 @@
                         <outlet property="temperatureLabel" destination="otY-rG-lyb" id="b31-yH-Yfq"/>
                         <outlet property="topView" destination="Xar-t7-qyx" id="mka-nH-UYg"/>
                         <outlet property="windyLabel" destination="dv8-f1-f1F" id="wJK-wN-qOY"/>
+                        <segue destination="D7J-Si-OI6" kind="show" identifier="pushStatisticWeather" id="n3t-Ne-rf3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RqS-nt-Laf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2011.4503816793892" y="-27.464788732394368"/>
+        </scene>
+        <!--Statistic Weather View Controller-->
+        <scene sceneID="QT3-UA-eA0">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="D7J-Si-OI6" customClass="StatisticWeatherViewController" customModule="Weather_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yNJ-9r-qaP">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wc6-1p-5jB">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="103"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="103" id="yft-6I-5HS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="r0m-OW-EwY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wc6-1p-5jB" firstAttribute="top" secondItem="yNJ-9r-qaP" secondAttribute="top" id="Ark-an-rJa"/>
+                            <constraint firstItem="wc6-1p-5jB" firstAttribute="trailing" secondItem="r0m-OW-EwY" secondAttribute="trailing" id="W0J-WG-67I"/>
+                            <constraint firstItem="wc6-1p-5jB" firstAttribute="leading" secondItem="r0m-OW-EwY" secondAttribute="leading" id="bEe-SZ-BrW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="49B-lz-cGZ"/>
+                    <connections>
+                        <outlet property="topView" destination="wc6-1p-5jB" id="u66-7A-9DX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AzG-aT-RmX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2997.709923664122" y="-27.464788732394368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4gk-qA-VcX">
