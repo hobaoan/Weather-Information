@@ -16,9 +16,9 @@ class HeaderTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         buttonStatistic.layer.shadowColor = UIColor.black.cgColor
-        buttonStatistic.layer.shadowOpacity = 0.6
+        buttonStatistic.layer.shadowOpacity = 0.5
         buttonStatistic.layer.shadowOffset = CGSize(width: 0, height: 2)
-        buttonStatistic.layer.shadowRadius = 3
+        buttonStatistic.layer.shadowRadius = 2
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
