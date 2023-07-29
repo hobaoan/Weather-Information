@@ -189,7 +189,7 @@ extension DetailWeatherViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "pushStatisticWeather" {
-                if let destinationVC = segue.destination as? DetailWeatherViewModel {
+                if let destinationVC = segue.destination as? StatisticWeatherViewController {
                     destinationVC.weatherForecast = self.weatherForecast
                 }
             }
