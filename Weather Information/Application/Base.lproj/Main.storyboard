@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="74y-ve-rhO">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -493,17 +494,37 @@
                                     <constraint firstAttribute="height" constant="103" id="yft-6I-5HS"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NhX-h4-ilv" customClass="CustomSegmentedControl" customModule="Weather_Map" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="103" width="393" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="tZ5-B8-0Tx"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKm-Rh-EPl">
+                                <rect key="frame" x="0.0" y="155" width="393" height="663"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="r0m-OW-EwY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="NhX-h4-ilv" firstAttribute="leading" secondItem="r0m-OW-EwY" secondAttribute="leading" id="2xZ-pV-KQz"/>
                             <constraint firstItem="wc6-1p-5jB" firstAttribute="top" secondItem="yNJ-9r-qaP" secondAttribute="top" id="Ark-an-rJa"/>
+                            <constraint firstItem="r0m-OW-EwY" firstAttribute="trailing" secondItem="EKm-Rh-EPl" secondAttribute="trailing" id="CNt-LZ-gSV"/>
+                            <constraint firstItem="EKm-Rh-EPl" firstAttribute="leading" secondItem="r0m-OW-EwY" secondAttribute="leading" id="JZc-ue-tOT"/>
                             <constraint firstItem="wc6-1p-5jB" firstAttribute="trailing" secondItem="r0m-OW-EwY" secondAttribute="trailing" id="W0J-WG-67I"/>
                             <constraint firstItem="wc6-1p-5jB" firstAttribute="leading" secondItem="r0m-OW-EwY" secondAttribute="leading" id="bEe-SZ-BrW"/>
+                            <constraint firstItem="NhX-h4-ilv" firstAttribute="top" secondItem="wc6-1p-5jB" secondAttribute="bottom" id="dXl-Bh-HG4"/>
+                            <constraint firstItem="EKm-Rh-EPl" firstAttribute="top" secondItem="NhX-h4-ilv" secondAttribute="bottom" constant="2" id="oCR-Ck-MJW"/>
+                            <constraint firstItem="r0m-OW-EwY" firstAttribute="trailing" secondItem="NhX-h4-ilv" secondAttribute="trailing" id="rC6-P9-rhA"/>
+                            <constraint firstItem="r0m-OW-EwY" firstAttribute="bottom" secondItem="EKm-Rh-EPl" secondAttribute="bottom" id="vqC-BQ-YE5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="49B-lz-cGZ"/>
                     <connections>
+                        <outlet property="containerView" destination="EKm-Rh-EPl" id="TRc-U4-d7V"/>
+                        <outlet property="interfaceSegmented" destination="NhX-h4-ilv" id="vK7-FG-R2V"/>
                         <outlet property="topView" destination="wc6-1p-5jB" id="u66-7A-9DX"/>
                     </connections>
                 </viewController>
@@ -533,6 +554,65 @@
             </objects>
             <point key="canvasLocation" x="127.48091603053435" y="-27.464788732394368"/>
         </scene>
+        <!--Temperature View Controller-->
+        <scene sceneID="gIS-Ct-QgL">
+            <objects>
+                <viewController storyboardIdentifier="kTemperatureViewController" id="pa6-Yb-koU" customClass="TemperatureViewController" customModule="Weather_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JSa-qa-WmW">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bbb-Er-xQi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3697" y="-406"/>
+        </scene>
+        <!--Clouds View Controller-->
+        <scene sceneID="v0k-X7-33g">
+            <objects>
+                <viewController storyboardIdentifier="kCloudsViewController" id="nLW-c2-dUw" customClass="CloudsViewController" customModule="Weather_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4RP-u4-mZw">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="iaD-ZS-yS8"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IzL-Fm-Z0E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3697" y="344"/>
+        </scene>
+        <!--Humidity View Controller-->
+        <scene sceneID="Vqf-6B-db1">
+            <objects>
+                <viewController storyboardIdentifier="kHumidityViewController" id="JOL-bh-7CL" customClass="HumidityViewController" customModule="Weather_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qtM-ZU-CSj">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="KZB-Ze-pqY"/>
+                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="USK-bS-C0S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4421" y="344"/>
+        </scene>
+        <!--Wind View Controller-->
+        <scene sceneID="fij-dA-Pak">
+            <objects>
+                <viewController storyboardIdentifier="kWindViewController" id="T2b-4G-VgB" customClass="WindViewController" customModule="Weather_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ft5-PA-aMF">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="QOC-14-ukt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jBu-3E-uUb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4421" y="-406"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_cloud" width="4000" height="4000"/>
@@ -542,6 +622,12 @@
         <image name="ic_windy" width="4000" height="4000"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

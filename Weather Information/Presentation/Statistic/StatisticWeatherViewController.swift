@@ -6,16 +6,33 @@
 //
 
 import UIKit
-
-class StatisticWeatherViewController: UIViewController {
+class StatisticWeatherViewController: UIViewController, CustomSegmentedControlDelegate {
     
     var weatherForecast: WeatherForecast?
     
     @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var containerView: UIView!
+    
+    var currentViewController: UIViewController?
+    
+    @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
+        didSet{
+            interfaceSegmented.setButtonTitles(buttonTitles: ["Temperature", "Clouds", "Humidity", "Wind"])
+            interfaceSegmented.selectorViewColor = .blue
+            interfaceSegmented.selectorTextColor = .blue
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
+        interfaceSegmented.delegate = self
+        showViewController(withIdentifier: "kTemperatureViewController")
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     func setUpUI() {
@@ -33,5 +50,57 @@ class StatisticWeatherViewController: UIViewController {
         topView.layer.shadowOffset = CGSize.zero
         topView.layer.shadowRadius = 3
     }
-
+    
+    func change(to index:Int) {
+        print("segmentedControl index changed to \(index)")
+        switch index {
+        case 0:
+            showViewController(withIdentifier: "kTemperatureViewController")
+        case 1:
+            showViewController(withIdentifier: "kCloudsViewController")
+        case 2:
+            showViewController(withIdentifier: "kHumidityViewController")
+        case 3:
+            showViewController(withIdentifier: "kWindViewController")
+        default:
+            break
+        }
+    }
+    
+    private func showViewController(withIdentifier identifier: String) {
+        guard let viewController = storyboard?.instantiateViewController(withIdentifier: identifier) else {
+            return
+        }
+        
+        // Remove the currently displayed view controller
+        currentViewController?.removeFromParent()
+        currentViewController?.view.removeFromSuperview()
+        
+        // Add the new view controller
+        addChild(viewController)
+        containerView.addSubview(viewController.view)
+        viewController.view.frame = containerView.bounds
+        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        viewController.didMove(toParent: self)
+        
+        // Pass data to the new view controller
+        configureViewController(viewController: viewController)
+        
+        // Update the current view controller
+        currentViewController = viewController
+    }
+    
+    
+    private func configureViewController(viewController: UIViewController) {
+        if let temperatureVC = viewController as? TemperatureViewController {
+            temperatureVC.weatherForecast = self.weatherForecast
+        } else if let cloudsVC = viewController as? CloudsViewController {
+            cloudsVC.weatherForecast = self.weatherForecast
+        } else if let humidityVC = viewController as? HumidityViewController {
+            humidityVC.weatherForecast = self.weatherForecast
+        } else if let windVC = viewController as? WindViewController {
+            windVC.weatherForecast = self.weatherForecast
+        }
+    }
+    
 }

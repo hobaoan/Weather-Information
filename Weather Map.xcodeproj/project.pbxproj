@@ -13,6 +13,11 @@
 		E918E4232A71716900360884 /* ForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E918E4212A71716900360884 /* ForecastTableViewCell.xib */; };
 		E918E4282A7179CD00360884 /* WeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E918E4272A7179CD00360884 /* WeatherForecast.swift */; };
 		E918E42D2A717B6700360884 /* DetailWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E918E42C2A717B6700360884 /* DetailWeatherViewModel.swift */; };
+		E924A0E62A75869100DAB386 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924A0E52A75869100DAB386 /* CustomSegmentedControl.swift */; };
+		E924A0E92A758CCE00DAB386 /* TemperatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924A0E82A758CCE00DAB386 /* TemperatureViewController.swift */; };
+		E924A0EB2A758CDE00DAB386 /* CloudsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924A0EA2A758CDE00DAB386 /* CloudsViewController.swift */; };
+		E924A0ED2A758CEC00DAB386 /* HumidityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924A0EC2A758CEC00DAB386 /* HumidityViewController.swift */; };
+		E924A0EF2A758D0300DAB386 /* WindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924A0EE2A758D0300DAB386 /* WindViewController.swift */; };
 		E932C61C2A6EC736009C5404 /* DetailWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E932C61B2A6EC736009C5404 /* DetailWeatherViewController.swift */; };
 		E9823F182A69186C00AD07FC /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9823F172A69186C00AD07FC /* WeatherData.swift */; };
 		E9823F212A691C7F00AD07FC /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9823F202A691C7F00AD07FC /* WeatherViewModel.swift */; };
@@ -53,6 +58,11 @@
 		E918E4212A71716900360884 /* ForecastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastTableViewCell.xib; sourceTree = "<group>"; };
 		E918E4272A7179CD00360884 /* WeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecast.swift; sourceTree = "<group>"; };
 		E918E42C2A717B6700360884 /* DetailWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWeatherViewModel.swift; sourceTree = "<group>"; };
+		E924A0E52A75869100DAB386 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		E924A0E82A758CCE00DAB386 /* TemperatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureViewController.swift; sourceTree = "<group>"; };
+		E924A0EA2A758CDE00DAB386 /* CloudsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsViewController.swift; sourceTree = "<group>"; };
+		E924A0EC2A758CEC00DAB386 /* HumidityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumidityViewController.swift; sourceTree = "<group>"; };
+		E924A0EE2A758D0300DAB386 /* WindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindViewController.swift; sourceTree = "<group>"; };
 		E932C61B2A6EC736009C5404 /* DetailWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWeatherViewController.swift; sourceTree = "<group>"; };
 		E9823F172A69186C00AD07FC /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		E9823F202A691C7F00AD07FC /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
@@ -122,6 +132,25 @@
 				E918E42C2A717B6700360884 /* DetailWeatherViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E924A0E42A75867100DAB386 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				E924A0E52A75869100DAB386 /* CustomSegmentedControl.swift */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		E924A0E72A758CA800DAB386 /* ViewSegment */ = {
+			isa = PBXGroup;
+			children = (
+				E924A0E82A758CCE00DAB386 /* TemperatureViewController.swift */,
+				E924A0EA2A758CDE00DAB386 /* CloudsViewController.swift */,
+				E924A0EC2A758CEC00DAB386 /* HumidityViewController.swift */,
+				E924A0EE2A758D0300DAB386 /* WindViewController.swift */,
+			);
+			path = ViewSegment;
 			sourceTree = "<group>";
 		};
 		E932C6162A6EC6D2009C5404 /* MapView */ = {
@@ -197,6 +226,7 @@
 				E9823F152A69153400AD07FC /* Model */,
 				E9823F222A691DB100AD07FC /* Network */,
 				E98E6A3F2A67F76D0001B850 /* Resource */,
+				E924A0E42A75867100DAB386 /* Framework */,
 			);
 			path = "Weather Information";
 			sourceTree = "<group>";
@@ -276,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				E9DB27852A72E062001D4C8C /* StatisticWeatherViewController.swift */,
+				E924A0E72A758CA800DAB386 /* ViewSegment */,
 			);
 			path = Statistic;
 			sourceTree = "<group>";
@@ -368,6 +399,8 @@
 				Base,
 			);
 			mainGroup = E98E69FE2A67F6420001B850;
+			packageReferences = (
+			);
 			productRefGroup = E98E6A082A67F6420001B850 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -416,15 +449,20 @@
 				E918E41E2A71711500360884 /* HeaderTableViewCell.swift in Sources */,
 				E918E4282A7179CD00360884 /* WeatherForecast.swift in Sources */,
 				E98E6A0F2A67F6420001B850 /* MapViewController.swift in Sources */,
+				E924A0ED2A758CEC00DAB386 /* HumidityViewController.swift in Sources */,
 				E9823F212A691C7F00AD07FC /* WeatherViewModel.swift in Sources */,
 				E932C61C2A6EC736009C5404 /* DetailWeatherViewController.swift in Sources */,
+				E924A0E92A758CCE00DAB386 /* TemperatureViewController.swift in Sources */,
+				E924A0EF2A758D0300DAB386 /* WindViewController.swift in Sources */,
 				E9823F252A691DE900AD07FC /* WeatherDataNetwork.swift in Sources */,
 				E98E6A0B2A67F6420001B850 /* AppDelegate.swift in Sources */,
 				E918E4222A71716900360884 /* ForecastTableViewCell.swift in Sources */,
+				E924A0E62A75869100DAB386 /* CustomSegmentedControl.swift in Sources */,
 				E918E42D2A717B6700360884 /* DetailWeatherViewModel.swift in Sources */,
 				E98E6A0D2A67F6420001B850 /* SceneDelegate.swift in Sources */,
 				E9DB27862A72E062001D4C8C /* StatisticWeatherViewController.swift in Sources */,
 				E9823F182A69186C00AD07FC /* WeatherData.swift in Sources */,
+				E924A0EB2A758CDE00DAB386 /* CloudsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +647,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -637,6 +676,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
