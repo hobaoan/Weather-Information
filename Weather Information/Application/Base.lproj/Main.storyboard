@@ -495,14 +495,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NhX-h4-ilv" customClass="CustomSegmentedControl" customModule="Weather_Map" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="103" width="393" height="50"/>
+                                <rect key="frame" x="0.0" y="108" width="393" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tZ5-B8-0Tx"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKm-Rh-EPl">
-                                <rect key="frame" x="0.0" y="155" width="393" height="663"/>
+                                <rect key="frame" x="0.0" y="160" width="393" height="658"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </containerView>
                         </subviews>
@@ -515,7 +515,7 @@
                             <constraint firstItem="EKm-Rh-EPl" firstAttribute="leading" secondItem="r0m-OW-EwY" secondAttribute="leading" id="JZc-ue-tOT"/>
                             <constraint firstItem="wc6-1p-5jB" firstAttribute="trailing" secondItem="r0m-OW-EwY" secondAttribute="trailing" id="W0J-WG-67I"/>
                             <constraint firstItem="wc6-1p-5jB" firstAttribute="leading" secondItem="r0m-OW-EwY" secondAttribute="leading" id="bEe-SZ-BrW"/>
-                            <constraint firstItem="NhX-h4-ilv" firstAttribute="top" secondItem="wc6-1p-5jB" secondAttribute="bottom" id="dXl-Bh-HG4"/>
+                            <constraint firstItem="NhX-h4-ilv" firstAttribute="top" secondItem="wc6-1p-5jB" secondAttribute="bottom" constant="5" id="dXl-Bh-HG4"/>
                             <constraint firstItem="EKm-Rh-EPl" firstAttribute="top" secondItem="NhX-h4-ilv" secondAttribute="bottom" constant="2" id="oCR-Ck-MJW"/>
                             <constraint firstItem="r0m-OW-EwY" firstAttribute="trailing" secondItem="NhX-h4-ilv" secondAttribute="trailing" id="rC6-P9-rhA"/>
                             <constraint firstItem="r0m-OW-EwY" firstAttribute="bottom" secondItem="EKm-Rh-EPl" secondAttribute="bottom" id="vqC-BQ-YE5"/>
