@@ -7,8 +7,12 @@
 
 import UIKit
 import MapKit
+import Reachability
 
 class MapViewController: UIViewController {
+    
+    let reachability = try! Reachability()
+    var isInternetAvailable = true
     
     var weatherViewModel = WeatherViewModel()
     var currentAnnotation: MKPointAnnotation?
@@ -30,12 +34,12 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI ()
-        fetchWeatherData(locationName: locationName)
+        startMonitoringReachability()
         
         tapSearchGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGestureRecognizer(_:)))
         
         tapWeatherInforGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(weatherInforTapped))
-
+        
         
         viewWeatherInfor.addGestureRecognizer(tapWeatherInforGestureRecognizer!)
         view.addGestureRecognizer(tapSearchGestureRecognizer!)
@@ -43,11 +47,44 @@ class MapViewController: UIViewController {
         lockScreenOrientation()
     }
     
+    func startMonitoringReachability() {
+        reachability.whenReachable = { reachability in
+            self.isInternetAvailable = true
+            if reachability.connection == .wifi {
+                print("Connected via WiFi")
+                self.fetchWeatherData(locationName: self.locationName)
+            } else if reachability.connection == .cellular {
+                print("Connected via Cellular")
+                self.fetchWeatherData(locationName: self.locationName)
+            } else {
+                print("Connected via Unknown")
+                self.fetchWeatherData(locationName: self.locationName)
+            }
+        }
+        
+        reachability.whenUnreachable = { _ in
+            self.isInternetAvailable = false
+            print("Not connected to the internet")
+            DispatchQueue.main.async {
+                let alertController = UIAlertController(title: "NOT CONNECTED", message: "Please connect to the internet", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+        
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+    }
+    
     func lockScreenOrientation() {
-           if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-               appDelegate.orientationLock = .portrait
-           }
-       }
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.orientationLock = .portrait
+        }
+    }
     
     func fetchWeatherData(locationName: String) {
         weatherViewModel.getWeatherData(for: locationName) { error in

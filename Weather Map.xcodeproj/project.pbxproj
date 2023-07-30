@@ -19,6 +19,7 @@
 		E924A0ED2A758CEC00DAB386 /* HumidityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924A0EC2A758CEC00DAB386 /* HumidityViewController.swift */; };
 		E924A0EF2A758D0300DAB386 /* WindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924A0EE2A758D0300DAB386 /* WindViewController.swift */; };
 		E924A0FE2A75A10A00DAB386 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = E924A0FD2A75A10A00DAB386 /* DGCharts */; };
+		E924A1012A766AB800DAB386 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = E924A1002A766AB800DAB386 /* Reachability */; };
 		E932C61C2A6EC736009C5404 /* DetailWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E932C61B2A6EC736009C5404 /* DetailWeatherViewController.swift */; };
 		E9823F182A69186C00AD07FC /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9823F172A69186C00AD07FC /* WeatherData.swift */; };
 		E9823F212A691C7F00AD07FC /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9823F202A691C7F00AD07FC /* WeatherViewModel.swift */; };
@@ -90,6 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E924A0FE2A75A10A00DAB386 /* DGCharts in Frameworks */,
+				E924A1012A766AB800DAB386 /* Reachability in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +333,7 @@
 			name = "Weather Map";
 			packageProductDependencies = (
 				E924A0FD2A75A10A00DAB386 /* DGCharts */,
+				E924A1002A766AB800DAB386 /* Reachability */,
 			);
 			productName = "Weather Information";
 			productReference = E98E6A072A67F6420001B850 /* Weather Map.app */;
@@ -406,6 +409,7 @@
 			mainGroup = E98E69FE2A67F6420001B850;
 			packageReferences = (
 				E924A0FC2A75A10A00DAB386 /* XCRemoteSwiftPackageReference "Charts" */,
+				E924A0FF2A766AB800DAB386 /* XCRemoteSwiftPackageReference "Reachability" */,
 			);
 			productRefGroup = E98E6A082A67F6420001B850 /* Products */;
 			projectDirPath = "";
@@ -822,6 +826,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		E924A0FF2A766AB800DAB386 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -829,6 +841,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E924A0FC2A75A10A00DAB386 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = DGCharts;
+		};
+		E924A1002A766AB800DAB386 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E924A0FF2A766AB800DAB386 /* XCRemoteSwiftPackageReference "Reachability" */;
+			productName = Reachability;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
