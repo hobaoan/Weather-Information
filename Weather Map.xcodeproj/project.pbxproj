@@ -18,6 +18,7 @@
 		E924A0EB2A758CDE00DAB386 /* CloudsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924A0EA2A758CDE00DAB386 /* CloudsViewController.swift */; };
 		E924A0ED2A758CEC00DAB386 /* HumidityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924A0EC2A758CEC00DAB386 /* HumidityViewController.swift */; };
 		E924A0EF2A758D0300DAB386 /* WindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924A0EE2A758D0300DAB386 /* WindViewController.swift */; };
+		E924A0FE2A75A10A00DAB386 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = E924A0FD2A75A10A00DAB386 /* DGCharts */; };
 		E932C61C2A6EC736009C5404 /* DetailWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E932C61B2A6EC736009C5404 /* DetailWeatherViewController.swift */; };
 		E9823F182A69186C00AD07FC /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9823F172A69186C00AD07FC /* WeatherData.swift */; };
 		E9823F212A691C7F00AD07FC /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9823F202A691C7F00AD07FC /* WeatherViewModel.swift */; };
@@ -88,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E924A0FE2A75A10A00DAB386 /* DGCharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +329,9 @@
 			dependencies = (
 			);
 			name = "Weather Map";
+			packageProductDependencies = (
+				E924A0FD2A75A10A00DAB386 /* DGCharts */,
+			);
 			productName = "Weather Information";
 			productReference = E98E6A072A67F6420001B850 /* Weather Map.app */;
 			productType = "com.apple.product-type.application";
@@ -400,6 +405,7 @@
 			);
 			mainGroup = E98E69FE2A67F6420001B850;
 			packageReferences = (
+				E924A0FC2A75A10A00DAB386 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = E98E6A082A67F6420001B850 /* Products */;
 			projectDirPath = "";
@@ -806,6 +812,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E924A0FC2A75A10A00DAB386 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E924A0FD2A75A10A00DAB386 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E924A0FC2A75A10A00DAB386 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E98E69FF2A67F6420001B850 /* Project object */;
 }

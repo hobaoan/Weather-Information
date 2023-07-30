@@ -32,15 +32,17 @@ class WeatherInfo: Codable {
     let main: MainWeather
     let weather: [WeatherDescription]
     let wind: Wind
+    let clouds: Clouds
     let visibility: Int
     let pop: Double
     let dt_txt: String
     
-    init(dt: Int, main: MainWeather, weather: [WeatherDescription], wind: Wind, visibility: Int, pop: Double, dt_txt: String) {
+    init(dt: Int, main: MainWeather, weather: [WeatherDescription], wind: Wind, clouds: Clouds, visibility: Int, pop: Double, dt_txt: String) {
         self.dt = dt
         self.main = main
         self.weather = weather
         self.wind = wind
+        self.clouds = clouds
         self.visibility = visibility
         self.pop = pop
         self.dt_txt = dt_txt
@@ -86,5 +88,13 @@ class Wind: Codable {
         self.speed = speed
         self.deg = deg
         self.gust = gust
+    }
+}
+
+class Clouds: Codable {
+    let all: Int
+    
+    init(all: Int) {
+        self.all = all
     }
 }

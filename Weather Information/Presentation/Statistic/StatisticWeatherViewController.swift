@@ -72,6 +72,17 @@ class StatisticWeatherViewController: UIViewController, CustomSegmentedControlDe
             return
         }
         
+        // Truyền dữ liệu vào view controller mới
+        if let temperatureViewController = viewController as? TemperatureViewController {
+            temperatureViewController.weatherForecast = self.weatherForecast
+        } else if let cloudsViewController = viewController as? CloudsViewController {
+            cloudsViewController.weatherForecast = self.weatherForecast
+        } else if let humidityViewController = viewController as? HumidityViewController {
+            humidityViewController.weatherForecast = self.weatherForecast
+        } else if let windViewController = viewController as? WindViewController {
+            windViewController.weatherForecast = self.weatherForecast
+        }
+        
         // Remove the currently displayed view controller
         currentViewController?.removeFromParent()
         currentViewController?.view.removeFromSuperview()
@@ -83,24 +94,9 @@ class StatisticWeatherViewController: UIViewController, CustomSegmentedControlDe
         viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         viewController.didMove(toParent: self)
         
-        // Pass data to the new view controller
-        configureViewController(viewController: viewController)
-        
         // Update the current view controller
         currentViewController = viewController
     }
     
-    
-    private func configureViewController(viewController: UIViewController) {
-        if let temperatureVC = viewController as? TemperatureViewController {
-            temperatureVC.weatherForecast = self.weatherForecast
-        } else if let cloudsVC = viewController as? CloudsViewController {
-            cloudsVC.weatherForecast = self.weatherForecast
-        } else if let humidityVC = viewController as? HumidityViewController {
-            humidityVC.weatherForecast = self.weatherForecast
-        } else if let windVC = viewController as? WindViewController {
-            windVC.weatherForecast = self.weatherForecast
-        }
-    }
     
 }
