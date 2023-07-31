@@ -3,5 +3,6 @@
 
 ##### This is a basic weather application based on the available weather API provided by Google. Users can view maps and search for information about countries and cities. Afterwards, users can access detailed weather information such as temperature, humidity, wind speed, and current weather conditions. Additionally, the application provides extended weather forecasts by the hour and for the next 6 days. Notably, the app also presents statistical data in the form of bar charts.
 ## 1. Map
-https://github.com/hobaoan/Weather-Information/assets/99665484/17ff15d0-431f-48b3-8a93-24a7d669ad13
+https://github.com/hobaoan/Weather-Information/assets/99665484/ae81b05b-dd28-4f3f-b095-ae082d8e68d3
+https://github.com/hobaoan/Weather-Information/assets/99665484/fc047dc0-5745-4bc1-b62a-615ea7549d15
 
